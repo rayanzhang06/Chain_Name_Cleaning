@@ -1,0 +1,162 @@
+# 医药连锁名称关联 Agent - 配置文件
+
+# 应用配置
+app:
+  name: "Chain Name Cleaning Agent"
+  version: "1.0.0"
+  debug: true
+
+# 路径配置
+paths:
+  base_dir: "/Users/ruizhang/Desktop/Projects/Chain_Name_Cleaning"
+  data_dir: "data"
+  input_dir: "data/input"
+  output_dir: "data/output"
+  database_dir: "data/database"
+  logs_dir: "logs"
+
+  # 输入文件
+  chain_abbreviations_file: "全国连锁简称.xlsx"
+  ka_template_pattern: "KA专员客户关系数据模板【{province}】.xlsx"
+
+  # 数据库文件
+  database_file: "chain_names.db"
+
+# 数据库配置
+database:
+  # 连接池配置
+  pool_size: 5
+  max_overflow: 10
+  pool_timeout: 30
+  pool_recycle: 3600
+
+# Kimi API 配置
+llm:
+  provider: "kimi"
+  model: "kimi-k2-thinking-turbo"  # 使用 thinking 模型提高准确度
+  temperature: 0.1
+  max_tokens: 4000
+  timeout: 30
+  max_retries: 3
+  retry_delay: 2  # 秒
+
+  # 提示词配置
+  system_prompt: |
+    你是一个医药连锁名称匹配专家。你的任务是将连锁药店的全称匹配到正确的简称。
+
+    重要约束：
+    1. 严禁编造简称 - 所有匹配的简称必须来自候选库
+    2. 省份必须严格匹配 - 只能从目标省份的候选简称库中选择
+    3. 找不到匹配时留空 - 必须返回空值或 null
+
+# Web 搜索配置
+search:
+  provider: "web-search-prime"
+  timeout: 10
+  max_retries: 3
+  retry_delay: 1
+
+  # 搜索策略
+  recency: "oneYear"  # oneDay, oneWeek, oneMonth, oneYear, noLimit
+  content_size: "medium"  # medium, high
+  location: "cn"  # cn, us
+
+  # 批量配置
+  batch_size: 10
+  concurrent_limit: 5
+
+# 阶段一配置（简称库清洗）
+stage1:
+  # 数据导入
+  skip_duplicates: true
+  skip_empty: true
+  normalize_text: true
+
+  # 在线验证
+  enable_verification: true
+  min_evidence_count: 2
+  confidence_threshold: 60
+
+  # 置信度等级
+  confidence_levels:
+    high: 80
+    medium: 60
+    low: 40
+
+  # 人工审核
+  review_low_confidence: true
+  auto_approve_high: true
+
+# 阶段二配置（全称-简称关联）
+stage2:
+  # 数据导入
+  batch_size: 50
+  required_fields:
+    - "连锁药店全称"
+    - "省份"
+
+  # LLM 匹配
+  enable_history: true  # 使用历史反馈
+  history_days: 30  # 加载最近 30 天的反馈
+  min_confirmation_count: 3  # 最小确认次数才使用历史映射
+
+  # 三层防护
+  enable_three_layer_protection: true
+  strict_validation: true
+  allow_out_of_province: false  # 是否允许跨省份简称
+  allow_fabricated: false  # 是否允许编造简称
+
+  # 用户确认
+  enable_confirmation: true
+  show_candidates: true
+  max_candidates: 5
+
+# 反馈学习配置
+feedback:
+  # 反馈保留
+  retention_days: 90
+  min_confirmation_count: 3  # 最小确认次数才认为是高置信度映射
+
+  # 分析配置
+  analyze_on_acceptance: true
+  analyze_on_rejection: true
+  track_performance: true
+
+# 日志配置
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  date_format: "%Y-%m-%d %H:%M:%S"
+
+  # 文件日志
+  file_handler:
+    enabled: true
+    filename: "chain_agent.log"
+    max_bytes: 10485760  # 10MB
+    backup_count: 5
+
+  # 控制台日志
+  console_handler:
+    enabled: true
+    level: "INFO"
+
+# 性能配置
+performance:
+  # 缓存
+  enable_cache: true
+  cache_ttl: 3600  # 秒
+
+  # 并发
+  max_workers: 4
+  use_thread_pool: true
+
+  # 内存
+  max_memory_mb: 2048
+  gc_threshold: 0.8
+
+# 导出配置
+export:
+  format: "xlsx"  # xlsx, csv
+  preserve_formatting: true
+  include_metadata: true
+  encoding: "utf-8-sig"
