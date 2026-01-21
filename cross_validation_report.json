@@ -1,0 +1,207 @@
+{
+  "timestamp": "2026-01-05 19:21:45",
+  "total_evaluated": 1835,
+  "validation_status_distribution": {
+    "CONSISTENT": 76,
+    "DISCREPANT": 793,
+    "CONFLICTING": 878,
+    "ACCEPTABLE": 88
+  },
+  "average_difference": 0.243,
+  "max_difference": 0.57,
+  "min_difference": 0.02,
+  "needs_manual_review": 1671,
+  "review_percentage": 91.1,
+  "confidence_distribution": {
+    "high_confidence": 41,
+    "medium_confidence": 0,
+    "low_confidence": 1794
+  },
+  "confidence_changes": {
+    "upgraded": 0,
+    "downgraded": 1835,
+    "unchanged": 0
+  },
+  "high_discrepancy_cases": [
+    {
+      "name": "总部",
+      "confidence_1": 0.82,
+      "confidence_2": 0.25,
+      "difference": 0.57,
+      "validation_status": "CONFLICTING",
+      "final_confidence": 0.19,
+      "needs_review": true
+    },
+    {
+      "name": "烨辉医药连锁/YEHUIPHARMACEUTICALCHAIN",
+      "confidence_1": 0.88,
+      "confidence_2": 0.34,
+      "difference": 0.54,
+      "validation_status": "CONFLICTING",
+      "final_confidence": 0.26,
+      "needs_review": true
+    },
+    {
+      "name": "御生堂（连锁B2C）",
+      "confidence_1": 0.91,
+      "confidence_2": 0.39,
+      "difference": 0.52,
+      "validation_status": "CONFLICTING",
+      "final_confidence": 0.29,
+      "needs_review": true
+    },
+    {
+      "name": "芒果医药（连锁B2C）",
+      "confidence_1": 0.91,
+      "confidence_2": 0.41,
+      "difference": 0.5,
+      "validation_status": "CONFLICTING",
+      "final_confidence": 0.31,
+      "needs_review": true
+    },
+    {
+      "name": "成都与梦同行科技有限公司  ",
+      "confidence_1": 0.82,
+      "confidence_2": 0.33,
+      "difference": 0.49,
+      "validation_status": "CONFLICTING",
+      "final_confidence": 0.25,
+      "needs_review": true
+    },
+    {
+      "name": "石药大药房（连锁B2C）",
+      "confidence_1": 0.91,
+      "confidence_2": 0.43,
+      "difference": 0.48,
+      "validation_status": "CONFLICTING",
+      "final_confidence": 0.32,
+      "needs_review": true
+    },
+    {
+      "name": "时景（连锁B2C）",
+      "confidence_1": 0.85,
+      "confidence_2": 0.37,
+      "difference": 0.48,
+      "validation_status": "CONFLICTING",
+      "final_confidence": 0.28,
+      "needs_review": true
+    },
+    {
+      "name": "惠好（连锁B2C）",
+      "confidence_1": 0.85,
+      "confidence_2": 0.37,
+      "difference": 0.48,
+      "validation_status": "CONFLICTING",
+      "final_confidence": 0.28,
+      "needs_review": true
+    },
+    {
+      "name": "武汉国大（连锁B2C）",
+      "confidence_1": 0.85,
+      "confidence_2": 0.37,
+      "difference": 0.48,
+      "validation_status": "CONFLICTING",
+      "final_confidence": 0.28,
+      "needs_review": true
+    },
+    {
+      "name": "天津医药集团津一堂",
+      "confidence_1": 0.88,
+      "confidence_2": 0.42,
+      "difference": 0.46,
+      "validation_status": "CONFLICTING",
+      "final_confidence": 0.32,
+      "needs_review": true
+    },
+    {
+      "name": "一方药业连锁",
+      "confidence_1": 0.88,
+      "confidence_2": 0.43,
+      "difference": 0.45,
+      "validation_status": "CONFLICTING",
+      "final_confidence": 0.32,
+      "needs_review": true
+    },
+    {
+      "name": "神龙连锁",
+      "confidence_1": 0.82,
+      "confidence_2": 0.37,
+      "difference": 0.45,
+      "validation_status": "CONFLICTING",
+      "final_confidence": 0.28,
+      "needs_review": true
+    },
+    {
+      "name": "弘尔医药连锁",
+      "confidence_1": 0.88,
+      "confidence_2": 0.43,
+      "difference": 0.45,
+      "validation_status": "CONFLICTING",
+      "final_confidence": 0.32,
+      "needs_review": true
+    },
+    {
+      "name": "百姓医药连锁",
+      "confidence_1": 0.88,
+      "confidence_2": 0.43,
+      "difference": 0.45,
+      "validation_status": "CONFLICTING",
+      "final_confidence": 0.32,
+      "needs_review": true
+    },
+    {
+      "name": "九福药房零售连锁",
+      "confidence_1": 0.88,
+      "confidence_2": 0.43,
+      "difference": 0.45,
+      "validation_status": "CONFLICTING",
+      "final_confidence": 0.32,
+      "needs_review": true
+    },
+    {
+      "name": "聚瀚堂药店连锁（德州）",
+      "confidence_1": 0.91,
+      "confidence_2": 0.46,
+      "difference": 0.45,
+      "validation_status": "CONFLICTING",
+      "final_confidence": 0.35,
+      "needs_review": true
+    },
+    {
+      "name": "好万家大药房（连锁B2C）",
+      "confidence_1": 0.91,
+      "confidence_2": 0.46,
+      "difference": 0.45,
+      "validation_status": "CONFLICTING",
+      "final_confidence": 0.35,
+      "needs_review": true
+    },
+    {
+      "name": "好万家药房连锁",
+      "confidence_1": 0.88,
+      "confidence_2": 0.43,
+      "difference": 0.45,
+      "validation_status": "CONFLICTING",
+      "final_confidence": 0.32,
+      "needs_review": true
+    },
+    {
+      "name": "联诚医药连锁",
+      "confidence_1": 0.88,
+      "confidence_2": 0.43,
+      "difference": 0.45,
+      "validation_status": "CONFLICTING",
+      "final_confidence": 0.32,
+      "needs_review": true
+    },
+    {
+      "name": "大丛林药房连锁",
+      "confidence_1": 0.88,
+      "confidence_2": 0.43,
+      "difference": 0.45,
+      "validation_status": "CONFLICTING",
+      "final_confidence": 0.32,
+      "needs_review": true
+    }
+  ]
+}
